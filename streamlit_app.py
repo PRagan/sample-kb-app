@@ -3,9 +3,9 @@ import streamlit as st
 import requests
 
 # Configuration
-API_URL = "http://localhost:8000/query"  # Your FastAPI endpoint 
+API_URL = "https://infinitely-squaretoed-cathrine.ngrok-free.dev/api/v1/query"  # Your FastAPI endpoint 
 
-st.set_page_config(page_title="AI Chatbot", page_icon="🤖")
+st.set_page_config(page_title="AMS KnowledgeBase AI Chatbot", page_icon="🤖")
 st.title("🤖 AI Assistant")
 
 # Initialize chat history in session state
@@ -32,7 +32,7 @@ if prompt := st.chat_input("Ask me anything..."):
             try:
                 response = requests.post(
                     API_URL,
-                    json={"query": prompt},  # Adjust based on your API schema
+                    json={"question": prompt, "top_k": 5, "include_sources": True},  # Adjust based on your API schema
                     timeout=60
                 )
                 response.raise_for_status()
