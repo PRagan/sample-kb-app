@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 
 # Configuration
-API_URL = "http://localhost:8000/query"  # Your FastAPI endpoint
+API_URL = "http://localhost:8000/query"  # Your FastAPI endpoint 
 
 st.set_page_config(page_title="AI Chatbot", page_icon="🤖")
 st.title("🤖 AI Assistant")
