@@ -36,7 +36,7 @@ if prompt := st.chat_input("Ask me anything..."):
                     timeout=60
                 )
                 response.raise_for_status()
-                answer = response.json().get("response", "No response received")
+                answer = response.json().get("answer", "No response received")
             except requests.exceptions.RequestException as e:
                 answer = f"Error connecting to API: {str(e)}"
         
